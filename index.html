@@ -28,9 +28,46 @@
 
 <body>
     <h1>HALO<br>THIS WEBSITE IS UNDER CONSTRUCTION</h1>
-    <img src="photo.jpg" alt="The dev"> <!-- Add your image here -->
-    <h1>SORY FOR THE DISTURBANCE</h1>
-    <script src="yourScript.js"></script> <!-- Link to your JavaScript file -->
+    <!-- <img src="photo.jpg" alt="The dev"> Add your image here -->
+    <!-- <h1>SORY FOR THE DISTURBANCE</h1> -->
+    <!-- Custom Google Search Box for Website Search -->
+    <form action="https://www.google.com/search" method="get" class="search-form">
+        <!-- To search only your domain -->
+        
+        <!-- Search input -->
+        <input type="text" name="q" placeholder="Search..." required>
+        
+        <!-- Submit button -->
+        <button type="submit">Search</button>
+    </form>
+
+    <style>
+    .search-form {
+        max-width: 500px;
+        margin: 20px auto;
+    }
+
+    .search-form input[type="text"] {
+        width: 70%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 50px;
+    }
+
+    .search-form button {
+        padding: 10px 20px;
+        background: #4285f4;
+        color: white;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+    }
+
+    .search-form button:hover {
+        background: #357abd;
+    }
+    </style>
 </body>
+
 
 </html>
