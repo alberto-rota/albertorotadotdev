@@ -11,8 +11,6 @@
         <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
         <link rel="shortcut icon" type="image/x-icon" href="favicon/favicon.ico">
         <link rel="manifest" href="favicon/site.webmanifest">
-        <script src="https://apis.google.com/js/api.js"></script>
-        <script src="https://accounts.google.com/gsi/client"></script>
 
     <meta name="theme-color" content="#ffffff">
 </head>
@@ -173,90 +171,11 @@ function initializeUpdates() {
     setInterval(updateWeather, 1800000); // Update weather every 30 minutes
 }
 
-// Wait for DOM to be fully loaded      
+// Wait for DOM to be fully loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeUpdates);
 } else {
     initializeUpdates();
-}
-
-const CLIENT_ID = '663995788098-c4j72bg59sr3mvpqsb6s6ljebv7t9lf7.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyDyQRUgYlrpNk909FsFMsZ5SC5--l6HUxk';
-const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
-const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
-
-let tokenClient;
-let gapiInited = false;
-let gisInited = false;
-
-function gapiLoaded() {
-    gapi.load('client', initializeGapiClient);
-}
-
-async function initializeGapiClient() {
-    await gapi.client.init({
-        apiKey: API_KEY,
-        discoveryDocs: [DISCOVERY_DOC],
-    });
-    gapiInited = true;
-    maybeEnableButtons();
-}
-
-function gisLoaded() {
-    tokenClient = google.accounts.oauth2.initTokenClient({
-        client_id: CLIENT_ID,
-        scope: SCOPES,
-        callback: '', // defined later
-    });
-    gisInited = true;
-    maybeEnableButtons();
-}
-
-function maybeEnableButtons() {
-    if (gapiInited && gisInited) {
-        document.getElementById('authorize_button').style.visibility = 'visible';
-    }
-}
-
-async function listTodaysEvents() {
-    let response;
-    try {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-
-        response = await gapi.client.calendar.events.list({
-            'calendarId': 'primary',
-            'timeMin': today.toISOString(),
-            'timeMax': tomorrow.toISOString(),
-            'showDeleted': false,
-            'singleEvents': true,
-            'orderBy': 'startTime',
-        });
-    } catch (err) {
-        document.getElementById('calendar-events').innerText = err.message;
-        return;
-    }
-
-    const events = response.result.items;
-    if (!events || events.length == 0) {
-        document.getElementById('calendar-events').innerText = 'No events found for today.';
-        return;
-    }
-
-    // Render events in a nice format
-    const eventsHtml = events.map(event => {
-        const start = event.start.dateTime ? new Date(event.start.dateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'All day';
-        return `
-            <div class="event-item">
-                <div class="event-time">${start}</div>
-                <div class="event-title">${event.summary}</div>
-            </div>
-        `;
-    }).join('');
-
-    document.getElementById('calendar-events').innerHTML = eventsHtml;
 }
 </script>
         <!-- Search Bar -->
@@ -271,11 +190,6 @@ async function listTodaysEvents() {
             data-lpignore="true">
             <button type="submit">Search</button>
         </form>
-    </div>
-
-    <div class="calendar-container">
-        <button id="authorize_button" style="visibility: hidden">Authorize Calendar</button>
-        <div id="calendar-events"></div>
     </div>
     <!-- AI Tools -->
     <div class="button-container">
