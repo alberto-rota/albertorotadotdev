@@ -9,17 +9,42 @@
 </head>
 <body>
     <!-- Greetings -->
-     <!-- Add this before your grid container -->
     <div class="greeting-section">
-        <div class="greeting">Good morning, Alberto!</div>
-        <div class="datetime">Monday, January 1st, 2024 • 12:00 PM</div>
+        <div class="greeting">Good morning, User!</div>
+        <div class="datetime"></div>
         <div class="weather">
             <img src="sun.png" alt="weather" class="weather-icon">
-            <span>72°F • Sunny</span>
+            <span>22°C • Sunny</span>
         </div>
     </div>
-
+    
     <script>
+    // Format date helper function
+    function formatDate(date) {
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        const day = days[date.getDay()];
+        const month = months[date.getMonth()];
+        const dateNum = date.getDate();
+        const year = date.getFullYear();
+
+        // Add ordinal suffix to date
+        let suffix = 'th';
+        if (dateNum % 10 === 1 && dateNum !== 11) suffix = 'st';
+        if (dateNum % 10 === 2 && dateNum !== 12) suffix = 'nd';
+        if (dateNum % 10 === 3 && dateNum !== 13) suffix = 'rd';
+    
+        // Format time
+        let hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Convert 0 to 12
+    
+        return `${day}, ${month} ${dateNum}${suffix}, ${year} • ${hours}:${minutes} ${ampm}`;
+    }
+    
     // Update greeting based on time of day
     function updateGreeting() {
         const hour = new Date().getHours();
@@ -31,48 +56,60 @@
         else if (hour >= 17 && hour < 22) greeting = 'Good evening';
         else greeting = 'Good night';
         
-        greetingDiv.textContent = `${greeting}, Alberto`;
+        if (greetingDiv) {
+            greetingDiv.textContent = `${greeting}, Alberto`;
+        }
     }
-
+    
     // Update date and time
     function updateDateTime() {
-        const now = new Date(); 
-        const options = { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-        };
-        const dateTimeString = now.toLocaleDateString('en-US', options);
-        document.querySelector('.datetime').textContent = dateTimeString;
+        const dateTimeDiv = document.querySelector('.datetime');
+        if (dateTimeDiv) {
+            dateTimeDiv.textContent = formatDate(new Date());
+        }
     }
-
-    // Update weather (you'll need to replace this with actual weather API data)
+    
+    // Update weather (placeholder - replace with actual API call)
     async function updateWeather() {
-        // This is a placeholder. You'll need to use a weather API
-        // Example using OpenWeatherMap API:
-        // const API_KEY = 'your_api_key';
-        // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=YourCity&appid=${API_KEY}&units=imperial`);
-        // const data = await response.json();
-        // document.querySelector('.weather span').textContent = `${Math.round(data.main.temp)}°F • ${data.weather[0].main}`;
+        const weatherSpan = document.querySelector('.weather span');
+        if (weatherSpan) {
+            // Placeholder weather data - replace with actual API call
+            // Example using OpenWeatherMap API:
+            
+            try {
+                const API_KEY = '484654038fd35d098bd0b877f506184b';
+                const CITY = 'Milan';
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`);
+                const data = await response.json();
+                const temp = Math.round(data.main.temp);
+                const condition = data.weather[0].main;
+                weatherSpan.textContent = `${temp}°C • ${condition}`;
+            } catch (error) {
+                console.error('Error fetching weather:', error);
+            }
+            
+        }
     }
-
-    // Update everything immediately and then set intervals
-    updateGreeting();
-    updateDateTime();
-    updateWeather();
-
-    // Update time every minute
-    setInterval(updateDateTime, 60000);
-
-    // Update greeting every hour
-    setInterval(updateGreeting, 3600000);
-
-    // Update weather every 30 minutes
-    setInterval(updateWeather, 1800000);
+    
+    // Initialize updates
+    function initializeUpdates() {
+        // Initial updates
+        updateGreeting();
+        updateDateTime();
+        updateWeather();
+    
+        // Set up intervals for updates
+        setInterval(updateDateTime, 60000); // Update time every minute
+        setInterval(updateGreeting, 3600000); // Update greeting every hour
+        setInterval(updateWeather, 1800000); // Update weather every 30 minutes
+    }
+    
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeUpdates);
+    } else {
+        initializeUpdates();
+    }
     </script>
         <!-- Search Bar -->
     <div class="googlesearch">
