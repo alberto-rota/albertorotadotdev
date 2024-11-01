@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+
+.button-container {
+  display: flex;
+  gap: 30px;
+}
+
+.button-wrapper {
+  position: relative;
+  display: inline-flex;
+  width: 220px; /* Increased width to accommodate spacing */
+  height: 55px;
+  perspective: 1000px;
+}
+.button {
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  text-decoration: none;
+  position: relative;
+}
+
+
+.button:before,
+.button:after {
+    position: absolute;
+    height: 55px;
+    width: 220px; /* Increased width to match wrapper */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 30px center; /* Moved icon more to the left */
+    padding-left: 70px; /* Increased padding to move text right */
+}
+
+
+.button:before {
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+.button:after {
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.button:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* ChatGPT Button */
+.button-1:before {
+  content: "ChatGPT";
+  background-color: white;
+  border: 5px solid black;
+  color: black;
+  background-image: url('chatgpt.png');
+}
+
+.button-1:after {
+  content: "ChatGPT";
+  background-color: black;
+  border: 5px solid white;
+  color: rgb(255, 255, 255);
+  background-image: url('chatgpt-hover.png');
+}
+
+/* Claude Button */
+.button-2:before {
+  content: "Claude";
+  background-color: white;
+  border: 5px solid #d97757;
+  color: #d97757;
+  background-image: url('claude.png');
+}
+
+.button-2:after {
+  content: "Claude";
+  background-color: #d97757;
+  border: 5px solid white;
+  color: white;
+  background-image: url('claude-hover.png');
+}
+
+/* Perplexity Button */
+.button-3:before {
+  content: "Perplexity";
+  background-color: white;
+  border: 5px solid #1f808d;
+  color: #1f808d;
+  background-image: url('perplexity.png');
+}
+
+.button-3:after {
+  content: "Perplexity";
+  background-color: #1f808d;
+  border: 5px solid white;
+  color: white;
+  background-image: url('perplexity-hover.png');
+}
