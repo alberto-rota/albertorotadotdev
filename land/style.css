@@ -383,3 +383,65 @@ body {
         transition: none;
     }
 }
+
+.greeting-section {
+    width: min(100%, 800px);
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.greeting {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #4285f4, #34A853, #FBBC05, #EA4335);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 8s infinite;
+    background-size: 300% 300%;
+}
+
+.datetime {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: #555;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.weather-icon {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 600px) {
+    .greeting {
+        font-size: 2rem;
+    }
+    
+    .datetime, .weather {
+        font-size: 1rem;
+    }
+}

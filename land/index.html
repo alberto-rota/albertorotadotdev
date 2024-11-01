@@ -8,7 +8,73 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Search Bar -->
+    <!-- Greetings -->
+     <!-- Add this before your grid container -->
+    <div class="greeting-section">
+        <div class="greeting">Good morning, Alberto!</div>
+        <div class="datetime">Monday, January 1st, 2024 • 12:00 PM</div>
+        <div class="weather">
+            <img src="sun.png" alt="weather" class="weather-icon">
+            <span>72°F • Sunny</span>
+        </div>
+    </div>
+
+    <script>
+    // Update greeting based on time of day
+    function updateGreeting() {
+        const hour = new Date().getHours();
+        const greetingDiv = document.querySelector('.greeting');
+        let greeting = '';
+        
+        if (hour >= 5 && hour < 12) greeting = 'Good morning';
+        else if (hour >= 12 && hour < 17) greeting = 'Good afternoon';
+        else if (hour >= 17 && hour < 22) greeting = 'Good evening';
+        else greeting = 'Good night';
+        
+        greetingDiv.textContent = `${greeting}, Alberto`;
+    }
+
+    // Update date and time
+    function updateDateTime() {
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        };
+        const dateTimeString = now.toLocaleDateString('en-US', options);
+        document.querySelector('.datetime').textContent = dateTimeString;
+    }
+
+    // Update weather (you'll need to replace this with actual weather API data)
+    async function updateWeather() {
+        // This is a placeholder. You'll need to use a weather API
+        // Example using OpenWeatherMap API:
+        // const API_KEY = 'your_api_key';
+        // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=YourCity&appid=${API_KEY}&units=imperial`);
+        // const data = await response.json();
+        // document.querySelector('.weather span').textContent = `${Math.round(data.main.temp)}°F • ${data.weather[0].main}`;
+    }
+
+    // Update everything immediately and then set intervals
+    updateGreeting();
+    updateDateTime();
+    updateWeather();
+
+    // Update time every minute
+    setInterval(updateDateTime, 000);
+
+    // Update greeting every hour
+    setInterval(updateGreeting, 3600000);
+
+    // Update weather every 30 minutes
+    setInterval(updateWeather, 1800000);
+    </script>
+        <!-- Search Bar -->
     <div class="googlesearch">
         <img src="google.png" alt="Google" class="google-logo">
         <form action="https://www.google.com/search" method="get" class="search-form">
