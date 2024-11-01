@@ -451,3 +451,43 @@ body {
         font-size: 1rem;
     }
 }
+
+.calendar-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.event-time {
+    width: 100px;
+    color: #666;
+    font-weight: bold;
+}
+
+.event-title {
+    flex: 1;
+}
+
+#authorize_button {
+    padding: 10px 20px;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#authorize_button:hover {
+    background: #357abd;
+}
