@@ -1,0 +1,19 @@
+/**
+ * @file base.css
+ 
+ * 
+ * Alberto Rota 
+ * Copyright to Alberto Rota, 2024
+ */
+
+ @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

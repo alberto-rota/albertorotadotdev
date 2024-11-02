@@ -1,0 +1,26 @@
+/**
+ * @file base.css
+ 
+ * 
+ * Alberto Rota 
+ * Copyright to Alberto Rota, 2024
+ */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background: linear-gradient(to right, #0e0e0e, #3c3c3c);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

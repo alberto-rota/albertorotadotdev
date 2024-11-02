@@ -1,0 +1,112 @@
+/**
+ * @file base.css
+ 
+ * 
+ * Alberto Rota 
+ * Copyright to Alberto Rota, 2024
+ */
+
+ .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 10px;
+    justify-content: center;
+}
+
+.button-wrapper {
+    position: relative;
+    display: inline-flex;
+    width: 250px;
+    height: 110px;
+    min-width: 40px;
+    perspective: 1000px;
+}
+
+.button {
+    font-size: 24px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-52.5px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+}
+
+.button:before,
+.button:after {
+    position: absolute;
+    height: 110px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: 10% center;
+    padding-left: 40%;
+}
+
+.button:before {
+    transform: rotateY(0deg) translateZ(52.5px);
+}
+
+.button:after {
+    transform: rotateX(90deg) translateZ(52.5px);
+}
+
+.button:hover {
+    transform: translateZ(-52.5px) rotateX(-90deg);
+}
+
+/* AI Button Variants */
+.button-1:before {
+    content: "ChatGPT";
+    background-color: white;
+    border: 5px solid black;
+    color: black;
+    background-image: url('../assets/logos/chatgpt.png');
+}
+
+.button-1:after {
+    content: "ChatGPT";
+    background-color: black;
+    border: 5px solid white;
+    color: rgb(255, 255, 255);
+    background-image: url('../assets/logos/chatgpt-hover.png');
+}
+
+.button-2:before {
+    content: "Claude";
+    background-color: white;
+    border: 5px solid #d97757;
+    color: #d97757;
+    background-image: url('../assets/logos/claude.png');
+}
+
+.button-2:after {
+    content: "Claude";
+    background-color: #d97757;
+    border: 5px solid white;
+    color: white;
+    background-image: url('../assets/logos/claude-hover.png');
+}
+
+.button-3:before {
+    content: "Perplexity";
+    background-color: white;
+    border: 5px solid #1f808d;
+    color: #1f808d;
+    background-image: url('../assets/logos/perplexity.png');
+}
+
+.button-3:after {
+    content: "Perplexity";
+    background-color: #1f808d;
+    border: 5px solid white;
+    color: white;
+    background-image: url('../assets/logos/perplexity-hover.png');
+}

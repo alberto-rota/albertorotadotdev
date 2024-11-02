@@ -3,233 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <title>Landing</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-        <link rel="shortcut icon" type="image/x-icon" href="favicon/favicon.ico">
-        <link rel="manifest" href="favicon/site.webmanifest">
-
-    <meta name="theme-color" content="#ffffff">
+    <title>Landing</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/ai-buttons.css">
+    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="styles/greetings.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Google Calendar API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="scripts/datetime.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
+    <script src="scripts/calendar.js" defer></script>
 </head>
 <body>
-    <!-- Add this before your grid container -->
-<div class="greeting-section">
-    <div class="greeting">Good morning, Alberto</div>
-    <div class="datetime">Friday November 1st 2024, 22:00</div>
-    <div class="weather">
-        <img src="weathericons/sun.svg" alt="weather" class="weather-icon">
-        <span>22°C • Sunny in Milan</span>
-    </div>
-</div>
+    <!-- Greeting Section -->
+    <section class="greeting-section">
+        <h1 class="greeting">Good morning, Alberto</h1>
+        <div class="datetime">Friday November 1st 2024, 22:00</div>
+        <div class="weather">
+            <img src="assets/weathericons/sun.svg" alt="sunny" class="weather-icon">
+            22°C • Sunny in Milan
+        </div>
+    </section>
 
-<script>
-// Format date helper function
-function formatDate(date) {
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    
-    const day = days[date.getDay()];
-    const month = months[date.getMonth()];
-    const dateNum = date.getDate();
-    const year = date.getFullYear();
-    
-    // Add ordinal suffix to date
-    let suffix = 'th';
-    if (dateNum % 10 === 1 && dateNum !== 11) suffix = 'st';
-    if (dateNum % 10 === 2 && dateNum !== 12) suffix = 'nd';
-    if (dateNum % 10 === 3 && dateNum !== 13) suffix = 'rd';
-
-    // Format time
-    let hours = date.getHours();
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // Convert 0 to 12
-
-    return `${day}, ${month} ${dateNum}${suffix}, ${year} • ${hours}:${minutes} ${ampm}`;
-}
-
-// Update greeting based on time of day
-function updateGreeting() {
-    const hour = new Date().getHours();
-    const greetingDiv = document.querySelector('.greeting');
-    let greeting = '';
-    
-    if (hour >= 5 && hour < 12) greeting = 'Good morning';
-    else if (hour >= 12 && hour < 17) greeting = 'Good afternoon';
-    else if (hour >= 17 && hour < 22) greeting = 'Good evening';
-    else greeting = 'Good night';
-    
-    if (greetingDiv) {
-        greetingDiv.textContent = `${greeting}, Alberto`;
-    }
-}
-
-// Update date and time
-function updateDateTime() {
-    const dateTimeDiv = document.querySelector('.datetime');
-    if (dateTimeDiv) {
-        dateTimeDiv.textContent = formatDate(new Date());
-    }
-}
-
-// Weather icons mapping with day/night variations
-const weatherIcons = {
-    'Clear': {
-        day: 'weathericons/sun.svg',
-        night: 'weathericons/moon.svg'
-    },
-    'Clouds': {
-        day: 'weathericons/cloudy-day.svg',
-        night: 'weathericons/cloudy-night.svg'
-    },
-    'Rain': {
-        day: 'weathericons/rain-day.svg',
-        night: 'weathericons/rain-night.svg'
-    },
-    'Thunderstorm': {
-        day: 'weathericons/thunderstorm-day.svg',
-        night: 'weathericons/thunderstorm-night.svg'
-    },
-    'Snow': {
-        day: 'weathericons/snow-day.svg',
-        night: 'weathericons/snow-night.svg'
-    },
-    'Mist': {
-        day: 'weathericons/mist-day.svg',
-        night: 'weathericons/mist-night.svg'
-    }
-};
-
-// Function to determine if it's daytime based on sunrise/sunset
-function isDaytime(sunrise, sunset) {
-    const currentTime = new Date().getTime() / 1000; // Convert to Unix timestamp
-    return currentTime >= sunrise && currentTime < sunset;
-}
-
-// Get appropriate weather icon based on condition and time
-function getWeatherIcon(condition, sunrise, sunset) {
-    if (!weatherIcons[condition]) {
-        return 'weathericons/sun.svg';
-    }
-    
-    return isDaytime(sunrise, sunset) 
-        ? weatherIcons[condition].day 
-        : weatherIcons[condition].night;
-}
-
-// Updated weather function
-async function updateWeather() {
-    const weatherIcon = document.querySelector('.weather-icon');
-    const weatherSpan = document.querySelector('.weather span');
-    
-    if (weatherIcon && weatherSpan) {
-        try {
-            const API_KEY = '484654038fd35d098bd0b877f506184b';
-            const city = 'Milan';
-            const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-            );
-            const data = await response.json();
-            
-            // Get weather data
-            const temp = Math.round(data.main.temp);
-            const condition = data.weather[0].main;
-            const sunrise = data.sys.sunrise;
-            const sunset = data.sys.sunset;
-            
-            // Update weather display
-            weatherSpan.textContent = `${temp}°C • ${condition} in ${city}`;
-            weatherIcon.src = getWeatherIcon(condition, sunrise, sunset);
-            weatherIcon.alt = condition;
-            
-            // Optional: Add a day/night indicator to alt text
-            weatherIcon.alt = `${condition} - ${isDaytime(sunrise, sunset) ? 'Day' : 'Night'}`;
-            
-        } catch (error) {
-            console.error('Error fetching weather:', error);
-            weatherIcon.src = 'weathericons/sun.svg';
-            weatherSpan.textContent = 'Weather unavailable';
-        }
-    }
-}
-
-
-// Initialize updates
-function initializeUpdates() {
-    // Initial updates
-    updateGreeting();
-    updateDateTime();
-    updateWeather();
-
-    // Set up intervals for updates
-    setInterval(updateDateTime, 60000); // Update time every minute
-    setInterval(updateGreeting, 3600000); // Update greeting every hour
-    setInterval(updateWeather, 1800000); // Update weather every 30 minutes
-}
-
-// Wait for DOM to be fully loaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeUpdates);
-} else {
-    initializeUpdates();
-}
-</script>
-        <!-- Search Bar -->
-    <div class="googlesearch">
-        <img src="logos/google.png" alt="Google" class="google-logo">
-        <form action="https://www.google.com/search" method="get" class="search-form">
-            <input type="text" 
-            name="q" 
-            placeholder="Search..." 
-            required 
-            autocomplete="off"
-            data-lpignore="true">
+    <!-- Google Search -->
+    <section class="googlesearch">
+        <img src="assets/logos/google.png" alt="Google" class="google-logo">
+        <form class="search-form" action="https://www.google.com/search" method="get">
+            <input type="text" name="q" placeholder="Search..." autocomplete="off">
             <button type="submit">Search</button>
         </form>
-    </div>
+    </section>
+
     <!-- AI Tools -->
-    <div class="button-container">
-        <span class="button-wrapper">
-            <a href="https://chat.openai.com" class="button button-1"></a>
-        </span>
-        <span class="button-wrapper">
-            <a href="https://claude.ai" class="button button-2"></a>
-        </span>
-        <span class="button-wrapper">
-            <a href="https://perplexity.ai" class="button button-3"></a>
-        </span>
-    </div>
-        <!-- <a href="https://chat.openai.com" class="ai-tool">
-            <img src="chatgpt.png" alt="ChatGPT" class="tool-icon-default">
-            <img src="chatgpt-white.png" alt="ChatGPT Hover" class="tool-icon-hover">
-        </a>
-        <a href="https://claude.ai" class="ai-tool">
-            <img src="claude.png" alt="Claude" class="tool-icon-default">
-            <img src="claude-white.png" alt="Claude Hover" class="tool-icon-hover">
-        </a>
-        <a href="https://perplexity.ai" class="ai-tool">
-            <img src="perplexity.png" alt="Perplexity" class="tool-icon-default">
-            <img src="perplexity-white.png" alt="Perplexity Hover" class="tool-icon-hover">
-        </a> -->
-    </div>
-    <!-- Grid Links -->
-    <div class="grid-container">
-        <div class="link-grid">
-            <a href="https://www.google.com/" class="grid-button"></a>
-            <a href="https://mail.google.com/mail/u/2/#inbox" class="grid-button"></a>
-            <a href="https://mail.google.com/chat/u/2/#chat/home" class="grid-button"></a>
-            <a href="https://console.cloud.google.com/home/dashboard?authuser=0&hl=it&project=alberto-ml-project" class="grid-button"></a>
-            <a href="https://www.google.com/maps" class="grid-button"></a>
-            <a href="https://wandb.ai/home" class="grid-button"></a>
-            <a href="https://github.com/alberto-rota?tab=repositories" class="grid-button"></a>
-            <a href="https://gitlab.com/dashboard/projects" class="grid-button"></a>
-            <a href="https://scholar.google.com/" class="grid-button"></a>
-            <a href="https://www.overleaf.com/project" class="grid-button"></a>
+    <section class="button-container">
+        <div class="button-wrapper">
+            <a href="https://chat.openai.com" class="button button-1" target="_blank"></a>
         </div>
-    </div>
+        <div class="button-wrapper">
+            <a href="https://claude.ai" class="button button-2" target="_blank"></a>
+        </div>
+        <div class="button-wrapper">
+            <a href="https://perplexity.ai" class="button button-3" target="_blank"></a>
+        </div>
+    </section>
+
+    <!-- Quick Links Grid -->
+    <section class="grid-container">
+        <div class="link-grid">
+            <a href="https://www.google.com/" class="grid-button" target="_blank"></a>
+            <a href="https://mail.google.com/mail/u/2/#inbox" class="grid-button" target="_blank"></a>
+            <a href="https://mail.google.com/chat/u/2/#chat/home" class="grid-button" target="_blank"></a>
+            <a href="https://console.cloud.google.com/home/dashboard?authuser=0&hl=it&project=alberto-ml-project" class="grid-button" target="_blank"></a>
+            <a href="https://www.google.com/maps" class="grid-button" target="_blank"></a>
+            <a href="https://wandb.ai/home" class="grid-button" target="_blank"></a>
+            <a href="https://github.com/alberto-rota?tab=repositories" class="grid-button" target="_blank"></a>
+            <a href="https://gitlab.com/dashboard/projects" class="grid-button" target="_blank"></a>
+            <a href="https://scholar.google.com/" class="grid-button" target="_blank"></a>
+            <a href="https://www.overleaf.com/project" class="grid-button" target="_blank"></a>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-container">
+        <button id="authorize_button" onclick="handleAuthClick()" style="visibility: hidden">Authorize Calendar</button>
+        <div id="calendar-events"></div>
+    </section>
+
+    <script>
+        // Initialize Google Calendar when the page loads
+        document.addEventListener('DOMContentLoaded', initializeGoogleCalendar);
+    </script>
 </body>
 </html>
