@@ -6,80 +6,116 @@
  * Copyright to Alberto Rota, 2024
  */
 
- .link-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 100px);
-    gap: 20px;
-    justify-content: center;
-    width: min(100%, 800px);
-    margin: 50px auto;
-    padding: 0 20px;
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  gap: 20px;
+  justify-content: center;
+  width: min(100%, 800px);
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
 .grid-button {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: white;
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.3s ease;
-    isolation: isolate;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+  isolation: isolate;
 }
 
 .grid-button::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 50%;
-    padding: 2px;
-    background: var(--border-color);
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    transition: all 0.3s ease;
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--border-color);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: all 0.3s ease;
 }
 
 .grid-button::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    background: var(--border-color);
-    z-index: -1;
-    opacity: 0;
-    filter: blur(8px);
-    transition: opacity 0.3s ease;
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--border-color);
+  z-index: -1;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
 }
 
 .grid-button:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .grid-button:hover::before {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .grid-button:hover::after {
-    opacity: 0.4;
+  opacity: 0.4;
 }
 
 /* Grid Button Variants */
-.grid-button:nth-child(1) { --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4); background-image: url('../assets/logos/g.png'); }
-.grid-button:nth-child(2) { --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4); background-image: url('../assets/logos/gmail.png'); }
-.grid-button:nth-child(3) { --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4); background-image: url('../assets/logos/gchat.png'); }
-.grid-button:nth-child(4) { --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4); background-image: url('../assets/logos/gcloud.png'); }
-.grid-button:nth-child(5) { --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4); background-image: url('../assets/logos/gmaps.png'); }
-.grid-button:nth-child(6) { --border-color: linear-gradient(45deg, #ffcc33, #ffcc33); background-image: url('../assets/logos/wandb.png'); }
-.grid-button:nth-child(7) { --border-color: linear-gradient(45deg, #121112, #9e9e9e); background-image: url('../assets/logos/github.png'); }
-.grid-button:nth-child(8) { --border-color: linear-gradient(45deg, #e24329, #fca326); background-image: url('../assets/logos/gitlab.png'); }
-.grid-button:nth-child(9) { --border-color: linear-gradient(45deg, #346ac2, #4286f5); background-image: url('../assets/logos/scholar.png'); }
-.grid-button:nth-child(10) { --border-color: linear-gradient(45deg, #04652f, #07d763); background-image: url('../assets/logos/overleaf.png'); }
+.grid-button:nth-child(1) {
+  --border-color: linear-gradient(45deg, #ea4335, #34a853, #ffcc33, #4285f4);
+  background-image: url("../assets/logos/g.png");
+  background-size: auto 70%;
+}
+.grid-button:nth-child(2) {
+  --border-color: linear-gradient(45deg, #ea4335, #34a853, #ffcc33, #4285f4);
+  background-image: url("../assets/logos/gmail.png");
+  background-size: auto 50%;
+}
+.grid-button:nth-child(3) {
+  --border-color: linear-gradient(45deg, #ea4335, #34a853, #ffcc33, #4285f4);
+  background-image: url("../assets/logos/gchat.png");
+  background-size: auto 60%;
+}
+.grid-button:nth-child(4) {
+  --border-color: linear-gradient(45deg, #ea4335, #34a853, #ffcc33, #4285f4);
+  background-image: url("../assets/logos/gcloud.png");
+  background-size: auto 70%;
+}
+.grid-button:nth-child(5) {
+  --border-color: linear-gradient(45deg, #ea4335, #34a853, #ffcc33, #4285f4);
+  background-image: url("../assets/logos/gmaps.png");
+  background-size: auto 60%;
+}
+.grid-button:nth-child(6) {
+  --border-color: linear-gradient(45deg, #ffcc33, #ffcc33);
+  background-image: url("../assets/logos/wandb.png");
+  background-size: auto 60%;
+}
+.grid-button:nth-child(7) {
+  --border-color: linear-gradient(45deg, #121112, #9e9e9e);
+  background-image: url("../assets/logos/github.png");
+  background-size: auto 60%;
+}
+.grid-button:nth-child(8) {
+  --border-color: linear-gradient(45deg, #e24329, #fca326);
+  background-image: url("../assets/logos/gitlab.png");
+  background-size: auto 60%;
+}
+.grid-button:nth-child(9) {
+  --border-color: linear-gradient(45deg, #346ac2, #4286f5);
+  background-image: url("../assets/logos/scholar.png");
+  background-size: auto 60%;
+}
+.grid-button:nth-child(10) {
+  --border-color: linear-gradient(45deg, #04652f, #07d763);
+  background-image: url("../assets/logos/overleaf.png");
+  background-size: auto 60%;
+}
