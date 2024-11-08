@@ -51,7 +51,7 @@
     <section class="googlesearch">
         <img src="assets/logos/google.png" alt="Google" class="google-logo">
         <form class="search-form" action="https://www.google.com/search" method="get">
-            <input type="text" name="q" placeholder="Search..." autocomplete="off">
+            <input type="text" name="q" placeholder="Search..." autocomplete="off" autofocus>
             <button type="submit">Search</button>
         </form>
     </section>
@@ -90,10 +90,5 @@
         <button id="authorize_button" onclick="handleAuthClick()" style="visibility: hidden">Authorize Calendar</button>
         <div id="calendar-events"></div>
     </section>
-
-    <script>
-        // Initialize Google Calendar when the page loads
-        document.addEventListener('DOMContentLoaded', initializeGoogleCalendar);
-    </script>
 </body>
 </html>
