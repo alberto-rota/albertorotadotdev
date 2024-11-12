@@ -50,6 +50,7 @@ class TimeGreeting {
     update() {
         const now = new Date();
         const currentHour = now.getHours();
+        const currentMinute = now.getMinutes();
 
         // Update greeting
         const greeting = this.getGreeting(currentHour);
@@ -57,7 +58,7 @@ class TimeGreeting {
 
         // Update date and time
         this.dateElement.textContent = this.formatDate(now);
-        this.timeElement.textContent = this.formatTime(now);
+        this.timeElement.textContent = currentHour + ':' + (currentMinute < 10 ? '0' : '') + currentMinute;
     }
 
     startUpdates() {
