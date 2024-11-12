@@ -171,12 +171,15 @@ class WeatherService {
         const weatherData = await this.getWeather();
         if (weatherData) {
             const weatherElement = document.querySelector('.weather');
+            const cityElement = document.querySelector('.city');
             if (!weatherElement) return;
             
             weatherElement.innerHTML = `
                 <img src="${weatherData.icon}" alt="${weatherData.description}" class="weather-icon">
-                <span>${weatherData.temperature}°C • ${weatherData.description} in ${weatherData.city}</span>
+                <span>${weatherData.temperature}°C • ${weatherData.description}</span>
             `;
+            cityElement.innerHTML = `<span>${weatherData.city}</span>
+        `;
         }
     }
 

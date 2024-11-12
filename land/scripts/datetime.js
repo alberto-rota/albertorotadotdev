@@ -9,25 +9,38 @@
 class TimeGreeting {
     constructor() {
         this.greetingElement = document.querySelector('.greeting');
-        this.dateTimeElement = document.querySelector('.datetime');
+        this.dateElement = document.querySelector('.date');
+        this.timeElement = document.querySelector('.time');
         this.userName = 'Alberto'; // Could be made configurable
     }
 
     getGreeting(hour) {
         if (hour >= 5 && hour < 12) return 'Good morning';
         if (hour >= 12 && hour < 17) return 'Good afternoon';
-        if (hour >= 17 && hour < 22) return 'Good evening';
+        if (hour >= 17 && hour < 24) return 'Good evening';
         return 'Good night';
     }
 
-    formatDateTime(date) {
+    formatDate(date) {
         const options = {
             weekday: 'long',
             year: 'numeric',
             month: 'long',
             day: 'numeric',
+            hour12: false
+        };
+        
+        return date.toLocaleDateString('en-US', options);
+    }
+    
+    formatTime(date) {
+        const options = {
+            weekday: false,
+            year: false,
+            month: false,
+            day: false,
             hour: '2-digit',
-            minute: '2-digit',
+            minute: '2-digit',  
             hour12: false
         };
         
@@ -43,7 +56,8 @@ class TimeGreeting {
         this.greetingElement.textContent = `${greeting}, ${this.userName}`;
 
         // Update date and time
-        this.dateTimeElement.textContent = this.formatDateTime(now);
+        this.dateElement.textContent = this.formatDate(now);
+        this.timeElement.textContent = this.formatTime(now);
     }
 
     startUpdates() {
