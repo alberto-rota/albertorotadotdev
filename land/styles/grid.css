@@ -100,7 +100,7 @@
   background-size: auto 60%;
 }
 .grid-button:nth-child(7) {
-  --border-color: linear-gradient(45deg, #ffcc33, #ffcc33);
+  --border-color: linear-gradient(45deg, #ffcc33, #ffcc33); 
   background-image: url("../assets/logos/wandb.png");
   background-size: auto 60%;
 }
