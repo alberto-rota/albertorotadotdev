@@ -96,7 +96,7 @@
 }
 .grid-button:nth-child(6) {
   --border-color: linear-gradient(45deg, #ea4335, #34a853, #ffcc33, #4285f4);
-  background-image: url("../assets/logos/gmaps.png");
+  background-image: url("../assets/logos/calendar.png");
   background-size: auto 60%;
 }
 .grid-button:nth-child(7) {
