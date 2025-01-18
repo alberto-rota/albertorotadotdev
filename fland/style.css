@@ -1,0 +1,526 @@
+/* Common styles remain the same */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background: linear-gradient(to right, #0e0e0e, #3c3c3c);
+}
+
+.googlesearch {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.google-logo {
+    width: 15%;
+    max-width: 200px;
+    min-width: 80px;
+}
+
+.search-form {
+    width: 100%;
+    margin: 50px auto;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.search-form input[type="text"] {
+    width: 80%;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-size: 16px;
+    max-width: 800px;
+    position: relative;
+    background: white;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat';
+}
+
+/* Gradient border animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.search-form input[type="text"]:hover,
+.search-form input[type="text"]:focus {
+    outline: none;
+    border: none;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(90deg, 
+                    #4285f4, /* Google Blue */
+                    #ea4335, /* Google Red */
+                    #fbbc05, /* Google Yellow */
+                    #34a853  /* Google Green */
+                ) border-box;
+    background-size: 300% 100%;
+    animation: gradient 3s ease infinite;
+    border: 5px solid transparent;
+}
+
+.search-form button {
+    width: 15%;
+    padding: 10px 20px;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    min-width: 100px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    
+    font-family: 'Montserrat', sans-serif;
+}
+
+.search-form button:hover {
+    background: #357abd;
+    background: white;
+    color: #4285f4;
+    border: #4285f4;
+}
+
+@media (max-width: 800px) {
+    .googlesearch {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .google-logo {
+        width: 30%;
+    }
+    
+    .search-form {
+        margin: 20px auto;
+        
+    }
+    
+    .search-form input[type="text"] {
+        width: 70%;
+    }
+    
+    .search-form button {
+        width: 25%;
+    }
+}
+/* AI Tools  */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 10px;
+    justify-content: center;
+}
+  
+  .button-wrapper {
+    position: relative;
+    display: inline-flex;
+    width: 250px; /* Increased width to accommodate spacing */
+    height: 110px;
+    min-width: 40px;
+    perspective: 1000px;
+  }
+  .button {
+    font-size: 24px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-52.5px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  
+  .button:before,
+  .button:after {
+      position: absolute;
+      height: 110px;
+      width: 250px; /* Increased width to match wrapper */
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      border-radius: 4px;
+      background-size: 30%;
+      background-repeat: no-repeat;
+      background-position: 10% center; /* Moved icon more to the left */
+      padding-left: 40%; /* Increased padding to move text right */
+  }
+  
+  
+  .button:before {
+    transform: rotateY(0deg) translateZ(52.5px);
+  }
+  
+  .button:after {
+    transform: rotateX(90deg) translateZ(52.5px);
+  }
+  
+  .button:hover {
+    transform: translateZ(-52.5px) rotateX(-90deg);
+  }
+  
+  /* ChatGPT Button */
+  .button-1:before {
+    content: "ChatGPT";
+    background-color: white;
+    border: 5px solid black;
+    color: black;
+    background-image: url('logos/chatgpt.png');
+  }
+  
+  .button-1:after {
+    content: "ChatGPT";
+    background-color: black;
+    border: 5px solid white;
+    color: rgb(255, 255, 255);
+    background-image: url('logos/chatgpt-hover.png');
+  }
+  
+  /* Claude Button */
+  .button-2:before {
+    content: "Claude";
+    background-color: white;
+    border: 5px solid #d97757;
+    color: #d97757;
+    background-image: url('logos/claude.png');
+  }
+  
+  .button-2:after {
+    content: "Claude";
+    background-color: #d97757;
+    border: 5px solid white;
+    color: white;
+    background-image: url('logos/claude-hover.png');
+  }
+  
+  /* Perplexity Button */
+  .button-3:before {
+    content: "Perplexity";
+    background-color: white;
+    border: 5px solid #1f808d;
+    color: #1f808d;
+    background-image: url('logos/perplexity.png');
+  }
+  
+  .button-3:after {
+    content: "Perplexity";
+    background-color: #1f808d;
+    border: 5px solid white;
+    color: white;
+    background-image: url('logos/perplexity-hover.png');
+  }
+
+  /* Grid layout styles */
+/* Grid layout styles */
+.link-grid {
+    display: grid;
+    /* For larger screens: 4 columns */
+    grid-template-columns: repeat(5, 100px);
+    gap: 20px;
+    justify-content: center;
+    width: min(100%, 800px);
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Responsive breakpoints for different screen sizes */
+@media (max-width: 800px) {
+    .link-grid {
+        /* For medium screens: 3 columns */
+        grid-template-columns: repeat(4, 100px);
+    }
+}
+
+@media (max-width: 450px) {
+    .link-grid {
+        /* For small screens: 2 columns */
+        grid-template-columns: repeat(3, 100px);
+    }
+}
+
+.grid-button {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+    isolation: isolate;
+}
+
+/* Base gradient border setup */
+.grid-button::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--border-color);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: all 0.3s ease;
+}
+
+/* Hover glow effect */
+.grid-button::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--border-color);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+/* Hover animation */
+.grid-button:hover {
+    transform: translateY(-5px);
+}
+
+.grid-button:hover::before {
+    opacity: 0.9;
+}
+
+.grid-button:hover::after {
+    opacity: 0.4;
+}
+
+/* Unique colors and images for each button */
+.grid-button:nth-child(1) {
+    --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
+    background-image: url('logos/gmail.png');
+    background-size: auto 60%;
+}
+.grid-button:nth-child(2) {
+    --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
+    background-image: url('logos/drive.png');
+    background-size: auto 60%;
+}
+.grid-button:nth-child(3) {
+    --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
+    background-image: url('logos/calendar.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(4) {
+    --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
+    background-image: url('logos/gchat.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(5) {
+    --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
+    background-image: url('logos/gmeet.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(6) {
+    --border-color: linear-gradient(45deg, ##EA4335, #34A853, #ffcc33,#4285f4);
+    background-image: url('logos/scholar.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(7) {
+    --border-color: linear-gradient(45deg, #ffffff, #65ff80);
+    background-image: url('logos/whats.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(8) {
+    --border-color: linear-gradient(45deg, #ffffff, #ffcc33);
+    background-image: url('logos/wandb.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(9) {
+    --border-color: linear-gradient(45deg, #67088c, #ffffff);
+    background-image: url('logos/github.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(10) {
+    --border-color: linear-gradient(45deg, #04652f, #07d763);
+    background-image: url('logos/overleaf.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(11) {
+    --border-color: linear-gradient(45deg, #141212, #ffffff);
+    background-image: url('logos/notion.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(12) {
+    --border-color: linear-gradient(45deg, #ff8a96, #ff7f35);
+    background-image: url('logos/aruba.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(13) {
+    --border-color: linear-gradient(45deg, #141212, #ffffff);
+    background-image: url('logos/outlook.png');
+    background-size: auto 60%;
+}
+
+.grid-button:nth-child(14) {
+    --border-color: linear-gradient(45deg, #141212, #ff0000);
+    background-image: url('polimi.png');
+    background-size: auto 100%;
+}
+
+
+/* Focus state for accessibility */
+.grid-button:focus {
+    outline: none;
+}
+
+.grid-button:focus-visible::before {
+    opacity: 0.1;
+}
+
+/* Optional: Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .grid-button,
+    .grid-button::before,
+    .grid-button::after {
+        transition: none;
+    }
+}
+
+.greeting-section {
+    width: min(100%, 800px);
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.greeting {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background-image: linear-gradient(45deg, #9d0208, #f3722c,#f9c74f,#0a9396, #277da1, #43aa8b);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 8s infinite linear;
+}
+
+.datetime {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: #fff;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 0 auto;
+    backdrop-filter: blur(5px);
+}
+
+.weather-icon {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 800px) {
+    .greeting {
+        font-size: 2rem;
+    }
+    
+    .datetime, .weather {
+        font-size: 1rem;
+    }
+}
+
+.calendar-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.event-time {
+    width: 100px;
+    color: #666;
+    font-weight: bold;
+}
+
+.event-title {
+    flex: 1;
+}
+
+#authorize_button {
+    padding: 10px 20px;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#authorize_button:hover {
+    background: #357abd;
+}

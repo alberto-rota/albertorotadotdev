@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/ai-buttons.css">
+    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="styles/greetings.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Google Calendar API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="scripts/datetime.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
+    <script src="scripts/calendar.js" defer></script>
+
+    <!-- Favicons and Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+</head>
+<body>
+    <!-- Greeting Section -->
+    <section class="greeting-section">
+        <h1 class="greeting">Good morning, Francesca</h1>
+        <div class="info">
+            <div class="dateandtime">
+                <div class="date">Friday, November 1st 2024</div>
+                <div class="time">22:00</div>
+            </div>
+            
+            <div class="weatherandcity">
+                <div class="weather">
+                    <img src="assets/weathericons/sun.svg" alt="sunny" class="weather-icon">
+                    22°C • Sunny
+                </div>
+                <div class="city">
+                    Milan
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Search -->
+    <section class="googlesearch">
+        <img src="assets/logos/google.png" alt="Google" class="google-logo">
+        <form class="search-form" action="https://www.google.com/search" method="get">
+            <input type="text" name="q" placeholder="Search..." autocomplete="off" autofocus>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- AI Tools -->
+    <section class="button-container">
+        <div class="button-wrapper">
+            <a href="https://chat.openai.com" class="button button-1" target="_blank"></a>
+        </div>
+        <div class="button-wrapper">
+            <a href="https://claude.ai" class="button button-2" target="_blank"></a>
+        </div>
+        <div class="button-wrapper">
+            <a href="https://perplexity.ai" class="button button-3" target="_blank"></a>
+        </div>
+    </section>
+
+    <!-- Quick Links Grid -->
+    <section class="grid-container">
+        <div class="link-grid">
+            <a href="https://mail.google.com/mail" class="grid-button" target="_blank"></a>
+            <a href="https://drive.google.com/drive/home" class="grid-button" target="_blank"></a>
+            <a href="https://www.google.com/calendar" class="grid-button" target="_blank"></a>
+            <a href="https://mail.google.com/chat/u/2/#chat/home" class="grid-button" target="_blank"></a>
+            <a href="https://meet.google.com/landing" class="grid-button" target="_blank"></a>
+            <a href="https://scholar.google.com/" class="grid-button" target="_blank"></a>
+            <a href="https://web.whatsapp.com/" class="grid-button" target="_blank"></a>
+
+            <a href="https://wandb.ai/home" class="grid-button" target="_blank"></a>
+            <a href="https://github.com/FrancescaFati?tab=repositories" class="grid-button" target="_blank"></a>
+            <a href="https://www.overleaf.com/project" class="grid-button" target="_blank"></a>
+            <a href="https://www.notion.so/login" class="grid-button" target="_blank"></a>
+            
+            <a href="https://www.notion.so/Work-eacb1cfed5c8424da4000494961b239c" class="grid-button" target="_blank"></a>
+            <a href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3a%2f%2foutlook.office.com%2fowa%2f&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=1&msaredir=1&client-request-id=43be410e-1665-ef72-9055-a09ed349c05e&protectedtoken=true&claims=%7b%22id_token%22%3a%7b%22xms_cc%22%3a%7b%22values%22%3a%5b%22CP1%22%5d%7d%7d%7d&nonce=638728221944664954.24df6af7-81dd-42b0-88ab-12039dcd148b&state=DcuxDoIwEIDhou_iVmmPo1wH4qAxDLigiYatRyGBSDBAML69Hb5_-yMhxD7YBZEKEZlJKAMC0BbRGLQpHgF9Z1yXSdLeSwRWksix1KAS6xuvkTgK7yWevi4-Latb21wf5tb3c9usjyl3RaWa4mbKn938q1oY7FyOdqzH91Df04FBbfy8fvhMfw&sso_reload=true" class="grid-button" target="_blank"></a>
+
+            <a href="https://aunicalogin.polimi.it/aunicalogin/aunicalogin/controller/logout/SessioneTerminata.do?jaf_currentWFID=main&EVN_DEFAULT=evento" class="grid-button" target="_blank"></a>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-container">
+        <button id="authorize_button" onclick="handleAuthClick()" style="visibility: hidden">Authorize Calendar</button>
+        <div id="calendar-events"></div>
+    </section>
+</body>
+</html>
+
+<!-- Notion , Mail,  Outlook Gmail, Google Drive, Google Meet, WandB, Overleaf, Google Chat, Scholar, Whatsapp, Aruba, Github, WordReferencce, Servizi online poli-->

@@ -1,0 +1,48 @@
+/**
+ * @file base.css
+ * 
+ * Francesca Rota 
+ * Copyright to Francesca Rota, 2024
+ */
+
+ @media (max-width: 800px) {
+    .googlesearch {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .google-logo {
+        width: 30%;
+    }
+    
+    .search-form {
+        margin: 20px auto;
+    }
+    
+    .search-form input[type="text"] {
+        width: 70%;
+    }
+    
+    .search-form button {
+        width: 25%;
+    }
+
+    .link-grid {
+        grid-template-columns: repeat(4, 100px);
+    }
+
+    .greeting {
+        font-size: 2rem;
+    }
+    
+    .datetime, .weather {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .link-grid {
+        grid-template-columns: repeat(3, 100px);
+    }
+}

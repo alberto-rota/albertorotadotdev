@@ -1,0 +1,26 @@
+/**
+ * @file base.css
+ 
+ * 
+ * Francesca Rota 
+ * Copyright to Francesca Rota, 2024
+ */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background: linear-gradient(to right, #0a1f1d, #0a0e04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
