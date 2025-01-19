@@ -147,6 +147,6 @@
 }
 .grid-button:nth-child(14) {
   --border-color: linear-gradient(45deg, #141212, #7ba5c4);
-  background-image: url('/assets/logos/poli.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/poli.png');
   background-size: auto 60%;
 }
