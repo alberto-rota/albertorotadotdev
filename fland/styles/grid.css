@@ -71,77 +71,77 @@
 /*} Grid Button Variants */
 .grid-button:nth-child(1) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('/assets/logos/gmail.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/gmail.png');
   background-size: auto 60%;
 }
 .grid-button:nth-child(2) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('logos/drive.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/drive.png');
   background-size: auto 60%;
 }
 .grid-button:nth-child(3) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('logos/calendar.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/calendar.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(4) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('logos/gchat.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/gchat.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(5) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('logos/gmeet.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/gmeet.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(6) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('logos/scholar.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/scholar.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(7) {
   --border-color: linear-gradient(45deg, #ffffff, #65ff80);
-  background-image: url('logos/whats.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/whats.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(8) {
   --border-color: linear-gradient(45deg, #ffffff, #ffcc33);
-  background-image: url('logos/wandb.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/wandb.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(9) {
   --border-color: linear-gradient(45deg, #67088c, #ffffff);
-  background-image: url('logos/github.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/github.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(10) {
   --border-color: linear-gradient(45deg, #04652f, #07d763);
-  background-image: url('logos/overleaf.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/overleaf.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(11) {
   --border-color: linear-gradient(45deg, #141212, #ffffff);
-  background-image: url('logos/notion.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/notion.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(12) {
   --border-color: linear-gradient(45deg, #ff8a96, #ff7f35);
-  background-image: url('logos/aruba.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/aruba.png');
   background-size: auto 60%;
 
 }
 .grid-button:nth-child(13) {
   --border-color: linear-gradient(45deg, #00b0e0, #0134dc);
-  background-image: url('logos/outlook.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/outlook.png');
   background-size: auto 60%;
 
 }
