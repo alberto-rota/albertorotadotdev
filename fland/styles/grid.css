@@ -99,7 +99,7 @@
 }
 .grid-button:nth-child(6) {
   --border-color: linear-gradient(45deg, #EA4335, #34A853, #ffcc33,#4285f4);
-  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/scholar.png');
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/gcloud.png');
   background-size: auto 60%;
 
 }
@@ -146,7 +146,7 @@
 
 }
 .grid-button:nth-child(14) {
-  --border-color: linear-gradient(45deg, #141212, #7ba5c4);
-  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/poli.png');
+  --border-color: linear-gradient(45deg, #04652f, #07d763);
+  background-image: url('https://raw.githubusercontent.com/alberto-rota/albertorotadotdev/refs/heads/main/fland/assets/logos/spotify.png');
   background-size: auto 60%;
 }
